@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Notice Board</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f8ff;
+            margin: 0;
+            padding: 0;
+        }
+        .notice-board {
+            background-color: #fdfdfe;
+            width: 60%;
+            margin: 50px auto;
+            padding: 20px;
+            border: 2px solid #dfe3e6;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+        }
+        .notice-board h2 {
+            color: #4682b4;
+            text-align: center;
+            margin-bottom: 20px;
+            font-size: 24px;
+            font-weight: bold;
+        }
+        .notice-board ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        .notice-board ul li {
+            background-color: #e6f7ff;
+            margin: 10px 0;
+            padding: 15px;
+            border-left: 6px solid #4682b4;
+            border-radius: 4px;
+            font-size: 18px;
+            color: #333;
+        }
+        .notice-board ul li:hover {
+            background-color: #d1ecf9;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="notice-board">
+        <h2>Important Notice</h2>
+        <ul id="notice-list">
+            <!-- Points will be fetched and inserted here dynamically -->
+        </ul>
+    </div>
+
+    <script>
+        // Fetching the external file and inserting content into the notice list
+        fetch('points.html')
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById('notice-list').innerHTML = data;
+            })
+            .catch(error => console.error('Error fetching the points:', error));
+    </script>
+
+</body>
+</html>
